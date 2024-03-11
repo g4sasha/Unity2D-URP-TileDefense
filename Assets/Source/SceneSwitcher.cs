@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class SceneSwitcher : MonoBehaviour
+public static class SceneSwitcher
 {
-    // Start is called before the first frame update
-    void Start()
+    public static void Switch(string sceneName)
     {
-        
+        SceneManager.LoadScene(sceneName);
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void Reload()
     {
-        
+        SceneManager.LoadScene(GetSceneName());
+    }
+
+    public static string GetSceneName()
+    {
+        return SceneManager.GetActiveScene().name;
     }
 }
